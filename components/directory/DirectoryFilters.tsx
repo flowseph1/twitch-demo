@@ -2,7 +2,7 @@ import { SearchIcon } from '@heroicons/react/outline';
 
 function DirectoryFilters() {
     return (
-        <div className="py-5 flex space-x-3 items-center">
+        <div className="py-8 flex space-x-3 items-center">
             <div>
                 <p className="font-bold text-white">Filter By</p>
             </div>
@@ -10,7 +10,7 @@ function DirectoryFilters() {
                 <SearchIcon className="h-5 w-5 color-text " />
                 <input
                     type="text"
-                    className="bg-transparent outline-none placeholder:color-text color-text"
+                    className="bg-transparent outline-none placeholder:text-gray-300 color-text"
                     placeholder="Search tags by categories"
                 />
             </div>
