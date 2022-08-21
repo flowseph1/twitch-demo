@@ -1,4 +1,5 @@
-import { RefreshIcon, SearchIcon, XIcon } from '@heroicons/react/solid';
+import { RefreshIcon, XIcon } from '@heroicons/react/solid';
+import { SearchIcon } from '@heroicons/react/outline';
 import React, { useState } from 'react';
 
 interface Props {
@@ -36,7 +37,7 @@ function HeaderInput({ recentSearches }: Props) {
             </div>
             <div className="flex w-full h-17 z-50 relative">
                 <div
-                    className="flex-1  bg-neutral-600 flex items-center rounded-tl-md rounded-bl-md color-text hover:shadow-[inset_0_0_0_2px_rgba(255,255,255,0.1)] transition
+                    className="flex-1  bg-neutral-600 flex items-center rounded-tl-md rounded-bl-md color-text hover:shadow-[inset_0_0_0_2px_rgba(255,255,255,0.15)] transition
                     "
                 >
                     <input

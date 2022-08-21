@@ -8,7 +8,7 @@
     }
 
     .primary-color {
-        @apply text-[#bf94ff];
+        @apply !text-[#bf94ff];
     }
 
     .bg-color {
@@ -17,5 +17,13 @@
 
     .active {
         @apply !border-[#bf94ff] primary-color;
+    }
+
+    .active-tab {
+        @apply border-b-2 border-[#bf94ff] !primary-color;
+    }
+
+    .background-color {
+        @apply bg-[#0e0e10];
     }
 }
