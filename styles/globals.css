@@ -11,6 +11,10 @@
         @apply !text-[#bf94ff];
     }
 
+    .primary-bg-color {
+        @apply !bg-[#bf94ff];
+    }
+
     .bg-color {
         @apply bg-[#18181b];
     }
@@ -25,5 +29,49 @@
 
     .background-color {
         @apply bg-[#0e0e10];
+    }
+
+    .top-corner {
+        @apply absolute
+        z-[5]
+        top-0
+        left-0
+        w-0
+        h-0
+        border-solid
+        border-t-[8px]
+        border-t-transparent
+        border-b-[8px]
+        border-b-transparent
+        border-r-[8px]
+        border-r-[#9147ff]
+        group-hover:translate-x-0
+        group-hover:-translate-y-[8px]
+        transition
+        origin-top-left
+        scale-0
+        group-hover:scale-100;
+    }
+
+    .bottom-corner {
+        @apply absolute
+        z-[5]
+        bottom-0
+        right-0
+        w-0
+        h-0
+        border-solid
+        border-b-[8px]
+        border-b-transparent
+        border-r-[8px]
+        border-r-transparent
+        border-t-[8px]
+        border-t-[#9147ff]
+        group-hover:translate-y-[8px]
+        group-hover:translate-x-[8px]
+        transition
+        origin-center
+        scale-0
+        group-hover:scale-100;
     }
 }
