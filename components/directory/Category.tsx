@@ -28,7 +28,7 @@ function Category({ title, views, image, tags }: Props) {
                     <div className="bottom-corner"></div>
                 </div>
             </div>
-            <div className="flex justify-between">
+            <div className="flex justify-between mt-1">
                 <h3 className="color-text font-bold text-sm cursor-pointer hover:primary-color flex items-center leading-[0] truncate">
                     {title}
                 </h3>
