@@ -10,7 +10,7 @@ function HeaderInput({ recentSearches }: Props) {
     const [isInputClicked, setIsInputClicked] = useState(false);
 
     return (
-        <div className="w-[400px] p-2 relative">
+        <div className="w-[400px] p-2 relative ">
             <div
                 className={`absolute pb-5 top-0 right-0 left-0 shadow-[0_0_5px_1px_rgba(0,0,0,0.5)] rounded-md bg-color z-0  ${
                     isInputClicked ? 'block' : 'hidden'

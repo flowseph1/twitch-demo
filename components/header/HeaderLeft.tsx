@@ -24,7 +24,7 @@ function HeaderLeft() {
 
             <div className="flex items-center h-full cursor-pointer border-b-4 border-[#18181b] active">
                 <h1 className="text-lg font-bold hover:primary-color py-2 leading-[0]">
-                    Discover
+                    Browse
                 </h1>
             </div>
 

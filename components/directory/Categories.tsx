@@ -45,11 +45,24 @@ const categories = [
         views: 66230,
         tags: ['Shooter', 'Action'],
     },
+    {
+        title: 'Valorant',
+        image: 'https://static-cdn.jtvnw.net/ttv-boxart/516575-285x380.jpg',
+        views: 91952,
+        tags: ['Shooter'],
+    },
+    {
+        title: 'Art',
+        image: 'https://static-cdn.jtvnw.net/ttv-boxart/509660-285x380.jpg',
+        views: 10232,
+        tags: ['Creative', 'IRL'],
+    },
 ];
 
 function Categories() {
+    /* flex min-w-full flex-wrap gap-1 */
     return (
-        <div className="grid sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-7 xl:grid-cols-9  2xl:grid-cols-10 gap-3 overflow-visible ">
+        <div className="grid grid-cols-[repeat(auto-fill,_minmax(180px,_1fr))] gap-1">
             {categories.map(category => (
                 <Category
                     key={category.title}

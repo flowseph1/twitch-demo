@@ -11,14 +11,14 @@ interface Props {
 
 function Category({ title, views, image, tags }: Props) {
     return (
-        <div className="space-y-1 overflow-visible">
+        <div className="px-1 mb-4">
             <div className="relative group">
-                <div className="group-hover:-translate-y-[8px] group-hover:translate-x-[8px] transition relative z-10 leading-[0]">
+                <div className="group-hover:-translate-y-[6px] group-hover:translate-x-[6px] transition relative z-10 leading-[0]">
                     <Image
                         src={image}
                         width={'285'}
                         height={'380'}
-                        objectFit="cover"
+                        objectFit="fill"
                         alt=""
                         className="cursor-pointer"
                     />
