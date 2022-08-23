@@ -5,7 +5,7 @@ import Tabs from './Tabs';
 
 function Directory() {
     return (
-        <div className="background-color flex-1 py-2 px-6">
+        <div className="background-color flex-1 py-2 px-7">
             <DirectoryTittle />
             <Tabs />
             <DirectoryFilters />

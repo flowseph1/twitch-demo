@@ -17,11 +17,11 @@ function HeaderRight() {
             <div className="rounded-md p-1.5 hover:bg-neutral-700 cursor-pointer">
                 <ChatAltIcon className="h-5 w-5 color-text" />
             </div>
-            <button className="flex space-x-1 color-text py-1 px-3 bg-neutral-700 rounded-[4px] font-semibold hover:bg-neutral-600 cursor-pointer text-sm">
+            <button className="flex items-center space-x-1 color-text py-1 px-2 bg-neutral-700 rounded-[4px] font-semibold hover:bg-neutral-600 cursor-pointer text-sm">
                 <BitsIcon className="h-5 w-5" />
-                <div>Get Bits</div>
+                <div className="leading-none flex items-center">Get Bits</div>
             </button>
-            <div className="flex items-center pr-4 cursor-pointer">
+            <div className="flex items-center pr-2 cursor-pointer">
                 <Image
                     src={avatar}
                     width="30"
