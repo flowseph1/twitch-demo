@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import { viewFormat } from './../../utils/ViewsFormat';
 import { ViewCompactFormat } from './../../utils/ViewsCompactFormat';
+import { useSelector } from 'react-redux';
+import { toggleSidebarValue } from '../../slices/sidebarSlice';
 
 interface Props {
     name: string;
@@ -12,8 +14,14 @@ interface Props {
 }
 
 function Channel({ name, image, category, viewers, status, newVideos }: Props) {
+    const toggleValue = useSelector(toggleSidebarValue);
+
     return (
-        <div className="flex justify-between color-text items-center p-2 cursor-pointer hover:bg-[rgba(255,255,255,0.04)]">
+        <div
+            className={`flex justify-between color-text items-center p-2 cursor-pointer ${
+                toggleValue && 'hover:bg-[rgba(255,255,255,0.04)]'
+            }`}
+        >
             <div className="flex space-x-2 items-center">
                 <Image
                     src={image}
@@ -22,7 +30,11 @@ function Channel({ name, image, category, viewers, status, newVideos }: Props) {
                     alt=""
                     className={`rounded-full ${!status && 'saturate-0'}`}
                 />
-                <div className="flex flex-col gap-[2px]">
+                <div
+                    className={`flex flex-col gap-[2px] ${
+                        !toggleValue && 'hidden'
+                    }`}
+                >
                     <p className="font-semibold text-sm leading-none">{name}</p>
                     <p className="font-normal text-sm text-gray-400 leading-none">
                         {category ? category : ''}
@@ -30,7 +42,11 @@ function Channel({ name, image, category, viewers, status, newVideos }: Props) {
                     </p>
                 </div>
             </div>
-            <div className="flex items-center space-x-1">
+            <div
+                className={`flex items-center space-x-1 ${
+                    !toggleValue && 'hidden'
+                }`}
+            >
                 {status ? (
                     <div className="flex items-center space-x-1">
                         <div className="h-2 w-2 rounded-full bg-red-600" />

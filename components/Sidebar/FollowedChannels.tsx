@@ -1,3 +1,5 @@
+import { useSelector } from 'react-redux';
+import { toggleSidebarValue } from '../../slices/sidebarSlice';
 import Channel from './Channel';
 
 const followedChannels = [
@@ -36,9 +38,11 @@ const followedChannels = [
 ];
 
 function FollowedChannels() {
+    const toggleValue = useSelector(toggleSidebarValue);
+
     return (
         <div className="flex flex-col mt-1 ">
-            <div className="mb-2">
+            <div className={`${toggleValue ? 'mb-2' : 'mb-0'}`}>
                 {followedChannels.map(channel => (
                     <Channel
                         key={channel.name}
@@ -51,7 +55,11 @@ function FollowedChannels() {
                     />
                 ))}
             </div>
-            <p className="text-[12px] hover:underline cursor-pointer primary-color hover:!text-[#a970ff] px-2">
+            <p
+                className={`text-[12px] hover:underline cursor-pointer primary-color hover:!text-[#a970ff] px-2 ${
+                    !toggleValue && 'hidden'
+                }`}
+            >
                 Show more
             </p>
         </div>

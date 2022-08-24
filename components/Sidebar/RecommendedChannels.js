@@ -1,3 +1,5 @@
+import { useSelector } from 'react-redux';
+import { toggleSidebarValue } from '../../slices/sidebarSlice';
 import Channel from './Channel';
 
 const recommendedChannels = [
@@ -36,9 +38,15 @@ const recommendedChannels = [
 ];
 
 function RecommendedChannels() {
+    const toggleValue = useSelector(toggleSidebarValue);
+
     return (
-        <div className="mt-2 ">
-            <div className="text-sm color-text font-semibold uppercase p-2">
+        <div className={`${toggleValue ? 'mt-2' : 'mt-0'}`}>
+            <div
+                className={`text-sm color-text font-semibold uppercase p-2 ${
+                    !toggleValue && 'hidden'
+                }`}
+            >
                 RECOMMENDED CHANNELS
             </div>
             <div className="mb-2">
@@ -54,7 +62,11 @@ function RecommendedChannels() {
                     />
                 ))}
             </div>
-            <p className="text-[12px] hover:underline cursor-pointer primary-color hover:!text-[#a970ff] px-2">
+            <p
+                className={`text-[12px] hover:underline cursor-pointer primary-color hover:!text-[#a970ff] px-2 ${
+                    !toggleValue && 'hidden'
+                }`}
+            >
                 Show more
             </p>
         </div>
