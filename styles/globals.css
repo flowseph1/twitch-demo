@@ -75,3 +75,25 @@
         group-hover:scale-100;
     }
 }
+
+@layer utilities {
+    .scrollbar::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    .scrollbar::-webkit-scrollbar-track {
+        border-radius: 100vh;
+        background: #0e0e10;
+    }
+
+    .scrollbar::-webkit-scrollbar-thumb {
+        border: 2px solid #0e0e10;
+        border-radius: 100vh;
+        background: transparent;
+        transition: all 0.3s;
+    }
+
+    .show-scroll-bar::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.5);
+    }
+}

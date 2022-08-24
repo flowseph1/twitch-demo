@@ -62,7 +62,7 @@ const categories = [
 function Categories() {
     /* flex min-w-full flex-wrap gap-1 */
     return (
-        <div className="grid grid-cols-[repeat(auto-fill,_minmax(180px,_1fr))] gap-1">
+        <div className="grid md:grid-cols-[repeat(auto-fill,_minmax(180px,_1fr))] gap-1 sm:grid-cols-2">
             {categories.map(category => (
                 <Category
                     key={category.title}
