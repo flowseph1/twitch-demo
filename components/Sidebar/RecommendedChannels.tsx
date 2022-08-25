@@ -1,34 +1,36 @@
 import { useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
 import { useSelector } from 'react-redux';
 import { supabase } from '../../services/supabaseClient';
 import { toggleSidebarValue } from '../../slices/sidebarSlice';
 import { SideBarChannel } from '../../typings';
-import { useQuery } from 'react-query';
 import Channel from './Channel';
 
 const getRecommendedChannels = async () => {
-    const { data, error } = await supabase.from('followed-channels').select('*');
+    const { data, error } = await supabase.from('recommended-channels').select('*');
     return data;
 };
 
-function FollowedChannels() {
-    // State variables.
-    // const [followedChannels, setFollowedChannels] = useState<SideBarChannel[] | null>(null);
+function RecommendedChannels() {
+    // States variables
+    // const [recommendedChannels, setRecommendedChannels] = useState<SideBarChannel[] | null>(null);
+
+    // Redux States
     const toggleValue = useSelector(toggleSidebarValue);
 
-    // Effects
+    const { data, status } = useQuery('recommends-channels', getRecommendedChannels);
+
+    // Effects.
     /* useEffect(() => {
-        setFollowedChannels(data);
+        setRecommendedChannels(data);
     }, [data]); */
 
-    const { data, status } = useQuery('followed-channels', getRecommendedChannels, { staleTime: 0 });
-
-    // Logs
-    console.log();
-
     return (
-        <div className="flex flex-col mt-1 ">
-            <div className={`${toggleValue ? 'mb-2' : 'mb-0'}`}>
+        <div className={`${toggleValue ? 'mt-2' : 'mt-0'}`}>
+            <div className={`text-sm color-text font-semibold uppercase p-2 ${!toggleValue && 'hidden'}`}>
+                RECOMMENDED CHANNELS
+            </div>
+            <div className="mb-2">
                 {data?.map((channel: SideBarChannel) => (
                     <Channel
                         key={channel.name}
@@ -52,4 +54,4 @@ function FollowedChannels() {
     );
 }
 
-export default FollowedChannels;
+export default RecommendedChannels;

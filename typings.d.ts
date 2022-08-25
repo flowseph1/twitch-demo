@@ -4,3 +4,12 @@ export interface CategoryType {
     views: number;
     tags: { id: number; name: string }[];
 }
+
+export interface SideBarChannel {
+    name: string;
+    image: string;
+    viewers: number;
+    category: string | null;
+    status: boolean;
+    newVideos: number | null;
+}
