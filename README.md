@@ -2,4 +2,4 @@
 
 ## Twitch.tv clone using Next JS Framework.
 
-Website[https://twitch-demo.vercel.app/]
+[URL of Site](https://twitch-demo.vercel.app/)
