@@ -3,6 +3,8 @@ export interface CategoryType {
     image: string;
     views: number;
     tags: { id: number; name: string }[];
+    followers: number;
+    description: text | null;
 }
 
 export interface SideBarChannel {

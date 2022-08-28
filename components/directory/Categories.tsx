@@ -12,8 +12,6 @@ const getCategories = async () => {
 
 function Categories() {
     // States variables
-    // const [categories, setCategories] = useState<CategoryType[] | null>(null);
-
     const { data, status } = useQuery('categories', getCategories);
 
     return (
@@ -24,6 +22,8 @@ function Categories() {
                     name={category.name}
                     image={category.image}
                     views={category.views}
+                    followers={category.followers}
+                    description={category.description}
                     tags={category.tags}
                 />
             ))}
