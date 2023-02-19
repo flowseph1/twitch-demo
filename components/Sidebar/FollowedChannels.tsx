@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { supabase } from '../../services/supabaseClient';
 import { toggleSidebarValue } from '../../slices/sidebarSlice';
@@ -21,7 +21,9 @@ function FollowedChannels() {
         setFollowedChannels(data);
     }, [data]); */
 
-    const { data, status } = useQuery('followed-channels', getRecommendedChannels, { staleTime: 0 });
+    const { data, isLoading, isFetching, status } = useQuery('followed-channels', getRecommendedChannels, {
+        staleTime: 0,
+    });
 
     // Logs
     console.log();
@@ -29,6 +31,7 @@ function FollowedChannels() {
     return (
         <div className="flex flex-col mt-1 ">
             <div className={`${toggleValue ? 'mb-2' : 'mb-0'}`}>
+                {isLoading && <Loading />}
                 {data?.map((channel: SideBarChannel) => (
                     <Channel
                         key={channel.name}
@@ -40,6 +43,7 @@ function FollowedChannels() {
                         newVideos={channel.newVideos}
                     />
                 ))}
+                {/* <Loading /> */}
             </div>
             <p
                 className={`text-[12px] hover:underline cursor-pointer primary-color hover:!text-[#a970ff] px-2 ${
@@ -53,3 +57,7 @@ function FollowedChannels() {
 }
 
 export default FollowedChannels;
+
+const Loading = () => {
+    return <div className="text-white flex justify-center items-center h-52">Loading...</div>;
+};

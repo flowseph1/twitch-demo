@@ -4,27 +4,16 @@ import RecommendedChannels from './RecommendedChannels';
 import { useSelector, useDispatch } from 'react-redux';
 import { toggleSidebarValue, toggle } from '../../slices/sidebarSlice';
 import SideBarIconOpen from './../../public/side-bar-icon_show';
+import { Suspense } from 'react';
 
 function Sidebar() {
     const toggleValue = useSelector(toggleSidebarValue);
     const dispatch = useDispatch();
 
     return (
-        <div
-            className={`bg-[#1f1f23] ${
-                toggleValue ? 'w-[240px]' : 'w-[50px]'
-            }  py-1`}
-        >
-            <div
-                className={`flex ${
-                    toggleValue ? 'justify-between' : 'justify-center'
-                } items-center mt-1 px-2`}
-            >
-                <h3
-                    className={`text-sm color-text font-semibold uppercase ${
-                        !toggleValue && 'hidden'
-                    }`}
-                >
+        <div className={`bg-[#1f1f23] ${toggleValue ? 'w-[240px]' : 'w-[50px]'}  py-1`}>
+            <div className={`flex ${toggleValue ? 'justify-between' : 'justify-center'} items-center mt-1 px-2`}>
+                <h3 className={`text-sm color-text font-semibold uppercase ${!toggleValue && 'hidden'}`}>
                     Followed Channels
                 </h3>
                 <div
@@ -32,17 +21,9 @@ function Sidebar() {
                     onClick={() => dispatch(toggle())}
                 >
                     {toggleValue ? (
-                        <SideBarIcon
-                            color={'#efeff1'}
-                            width={'20'}
-                            height={'20'}
-                        />
+                        <SideBarIcon color={'#efeff1'} width={'20'} height={'20'} />
                     ) : (
-                        <SideBarIconOpen
-                            color={'#efeff1'}
-                            width={'20'}
-                            height={'20'}
-                        />
+                        <SideBarIconOpen color={'#efeff1'} width={'20'} height={'20'} />
                     )}
                 </div>
             </div>
